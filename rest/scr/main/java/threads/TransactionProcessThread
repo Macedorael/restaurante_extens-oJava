@@ -1,0 +1,15 @@
+public class TransactionProcessThread extends Thread {
+    private Transaction transaction;
+    private String transactionDetail;
+
+    public TransactionProcessThread(Transaction transaction, String transactionDetail) {
+        this.transaction = transaction;
+        this.transactionDetail = transactionDetail;
+    }
+
+    @Override
+    public void run() {
+        transaction.addTransaction(transactionDetail);
+        System.out.println("Transação processada por " + Thread.currentThread().getName());
+    }
+}
